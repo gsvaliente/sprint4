@@ -20,3 +20,9 @@ For this exercise it was creating a simple express server and route. My initial 
 **Question** ⛔️
 
 Add an endpoint /upload to upload a png , jpg or gif file to the server with a POST request and return an error message if the file extension does not match these.
+
+**Solution** ✅
+
+Created and endpoint for upload. Installed Multer which is a package that helps with uploading files.
+<br>
+To work with Multer I created two variables, one for the PATH and one for the MIMETYPE of the files. They were both used to create the upload function. The storage, fileFilter and limits where used in the multer instance.
