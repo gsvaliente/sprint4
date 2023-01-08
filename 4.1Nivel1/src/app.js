@@ -9,6 +9,7 @@ const PORT = 3000;
 const PATH = `${__dirname}/db/uploads/`;
 const MIMETYPE = ['image/jpeg', 'image/png', 'image/gif'];
 
+//* MULTER FUNCTION
 const upload = multer({
   storage: multer.diskStorage({
     destination: PATH,
