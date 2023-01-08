@@ -1,5 +1,5 @@
+const { extname } = require('path');
 const express = require('express');
-const database = require('./db/users.json');
 const multer = require('multer');
 
 const app = express();
@@ -10,7 +10,15 @@ const PATH = `${__dirname}/db/uploads/`;
 const MIMETYPE = ['image/jpeg', 'image/png', 'image/gif'];
 
 const upload = multer({
-  dest: PATH,
+  storage: multer.diskStorage({
+    destination: PATH,
+    filename: (req, file, callback) => {
+      const extension = extname(file.originalname);
+      const fileName = file.originalname.split(extension)[0];
+
+      callback(null, `${fileName}-${Date.now()}${extension}`);
+    },
+  }),
   fileFilter: (req, file, callback) => {
     if (MIMETYPE.includes(file.mimetype)) callback(null, true);
     else callback(new Error(`Only ${MIMETYPE.join(' ')} files are allowed`));
@@ -28,9 +36,10 @@ app.get('/user', (req, res) => {
 
 //endpoint for the upload
 app.post('/upload', upload.single('image'), (req, res) => {
-  console.log(req.file);
-
-  res.sendStatus(200);
+  res.status(200).json({
+    status: 'Success',
+    data: 'File was uploaded',
+  });
 });
 
 app.all('*', (req, res) => {
