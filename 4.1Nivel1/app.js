@@ -7,7 +7,7 @@ const PORT = 3000;
 
 //* MULTER VARIABLES
 const PATH = `${__dirname}/db/uploads/`;
-const MIMETYPE = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
+const MIMETYPE = ['image/jpeg', 'image/png', 'image/gif'];
 
 //* MULTER FUNCTION
 const upload = multer({
@@ -40,7 +40,7 @@ app.get('/user', (req, res) => {
 });
 
 //endpoint for the upload
-app.post('/upload', upload.single('file'), (req, res) => {
+app.post('/upload', upload.single('image'), (req, res) => {
   res.status(200).json({
     status: 'Success',
     data: 'File was uploaded',
