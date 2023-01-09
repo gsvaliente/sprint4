@@ -1,3 +1,9 @@
+# INSTRUCTIONS
+
+- npm init -> to install all the dependencies.
+- node app -> to run the app
+- For testing in postman for /upload, the file must be called 'image'.
+
 # REST API
 
 The files for each exercise will be found in the respective directory level.
