@@ -32,8 +32,11 @@ const upload = multer({
 //* ROUTING
 //endpoint for the user page
 app.get('/user', (req, res) => {
-  res.status(200).json(database);
-  res.end();
+  res.status(200).json({
+    name: 'Gabriel Valiente',
+    age: 30,
+    url: req.url,
+  });
 });
 
 //endpoint for the upload
