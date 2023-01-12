@@ -5,8 +5,7 @@ const upload = require('./routes/route-upload');
 const app = express();
 const PORT = 3000;
 
-//* ROUTING
-
+// ROUTING
 app.use('/user', user);
 app.use('/upload', upload);
 

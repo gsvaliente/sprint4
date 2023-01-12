@@ -1,8 +1,8 @@
-const { extname } = require('path');
 const multer = require('multer');
+const { extname } = require('path');
 
 //* MULTER VARIABLES
-const PATH = `${__dirname}/db/uploads/`;
+const PATH = './db/uploads';
 const MIMETYPE = ['image/jpeg', 'image/png', 'image/gif'];
 
 //* MULTER FUNCTION
